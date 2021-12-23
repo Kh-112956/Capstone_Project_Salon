@@ -1,12 +1,12 @@
 package com.example.Salon.model.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
-public class Customers {
+public class Customers<joinColumns, inverseJoinColumns> {
     @Id
     private int id;
     private String fname;
@@ -16,6 +16,12 @@ public class Customers {
     private String Gender;
     private  String City;
 
+//@ManyToMany
+//@JoinTable (name="Customer_Services"),
+   // joinColumns = @JoinColumn( name = "Services_id")
+  //  inverseJoinColumns = @JoinColumn( name = "customer_id"))
+
+    private List <Services> services =new ArrayList<>();
 
     public Customers(int id, String fname, String lname, int phone, String state, String gender, String city) {
         this.id = id;
