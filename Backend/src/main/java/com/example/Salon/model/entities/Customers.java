@@ -1,36 +1,44 @@
 package com.example.Salon.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table
-public class Customers<joinColumns, inverseJoinColumns> {
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+
+public class Customers {
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     private String fname;
     private String lname;
     private int phone;
     private String state;
-    private String Gender;
-    private  String City;
+    private String gender;
+    private  String city;
 
-//@ManyToMany
-//@JoinTable (name="Customer_Services"),
-   // joinColumns = @JoinColumn( name = "Services_id")
-  //  inverseJoinColumns = @JoinColumn( name = "customer_id"))
+    @ManyToMany
+    @JoinTable(name = "Customer_Services",
+        joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "services_id"))
+    private List<Services> serviceMul = new ArrayList<>();
 
-    private List <Services> services =new ArrayList<>();
-
-    public Customers(int id, String fname, String lname, int phone, String state, String gender, String city) {
+    public Customers(int id, String fname, String lname, int phone, String state, String gender, String city, List<Services> serviceMul) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.phone = phone;
         this.state = state;
-        this.Gender = gender;
-        this.City = city;
+        this.gender = gender;
+        this.city = city;
+        this.serviceMul = serviceMul;
     }
 
     public Customers() {
@@ -78,31 +86,26 @@ public class Customers<joinColumns, inverseJoinColumns> {
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(String gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
-    @Override
-    public String toString() {
-        return "Customers{" +
-                "id=" + id +
-                ", fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
-                ", phone=" + phone +
-                ", state='" + state + '\'' +
-                ", Gender='" + Gender + '\'' +
-                ", City='" + City + '\'' +
-                '}';
+    public List<Services> getServiceMul() {
+        return serviceMul;
+    }
+
+    public void setServiceMul(List<Services> serviceMul) {
+        this.serviceMul = serviceMul;
     }
 }

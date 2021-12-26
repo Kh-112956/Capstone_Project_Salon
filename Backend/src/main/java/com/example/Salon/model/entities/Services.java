@@ -1,4 +1,6 @@
 package com.example.Salon.model.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,16 +10,17 @@ import java.util.List;
 @Table
 public class Services {
     @Id
-   // @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int ServicesId;
+   @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int servicesId;
     private String name;
     private int price;
 
-//@ManyToMany (mappedBy ="Services")
-//private List<Customers> Customer = new ArrayList<>();
+    @ManyToMany (mappedBy = "serviceMul")//, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Customers> customerMul = new ArrayList<>();
 
-    public Services (int ServiceId, String name, int price) {
-       this. ServicesId = ServiceId;
+    public Services(int servicesId, String name, int price) {
+        this.servicesId = servicesId;
         this.name = name;
         this.price = price;
     }
@@ -26,11 +29,11 @@ public class Services {
     }
 
     public int getServicesId() {
-        return ServicesId;
+        return servicesId;
     }
 
     public void setServicesId(int servicesId) {
-        ServicesId = servicesId;
+        this.servicesId = servicesId;
     }
 
     public String getName() {
@@ -49,12 +52,11 @@ public class Services {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Services{" +
-                "ServicesId=" + ServicesId +
-                ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                '}';
+    public List<Customers> getCustomerMul() {
+        return customerMul;
+    }
+
+    public void setCustomerMul(List<Customers> customerMul) {
+        this.customerMul = customerMul;
     }
 }

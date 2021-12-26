@@ -20,11 +20,11 @@ private ServicesRepository servicesRepository;
     return servicesRepository.findAll();
     }
 
-   public Optional<Services>getServices(Integer servicesId){
+   public Optional<Services>getService(Integer servicesId){
     return servicesRepository.findById(servicesId);
     }
-    public void addNewServices (Services services ){
-    servicesRepository.save(services);
+    public void addNewServices (Services service ){
+    servicesRepository.save(service);
     }
     public void deleteServices(Integer servicesId){
         servicesRepository.deleteById(servicesId);
