@@ -1,3 +1,4 @@
+
 /*import React, { useEffect, useState } from 'react'
 import axios from "axios"
 export default function App() {
@@ -36,43 +37,41 @@ export default function App() {
       <h2>my customer details are:  {JSON.stringify(Mycustomer)}</h2>
       <button onClick={handleClick}>Post to Spring</button><br></br>
       <button onClick={handleClickDel}>Delete to Spring</button>
-     
-    
     </div>
   )
-}*/
- 
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import "./index.css"
-//import { getPatients } from "./data";
-function App() {
-  // let [User, setUser] = useState(false);
-  // let employee = getEmployees();
-  // let NewArray = [];
-  //   localStorage.setItem("MyNewArray", JSON.stringify(NewArray))
-  // localStorage.setItem("MyEmployee", JSON.stringify(employee))
-  // console.log(JSON.parse(localStorage.getItem("Myemployee")))
-  
+}
+*/
+import React ,{Link}from 'react';
+//import ReactDOM from 'react-dom';
+//import App from './App';
+//import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Employee from "./routes/Employee";
+// import login from "./routes/login";
+// import Homepage from "./routes/Homepage";
+// import pemissionr from "./routes/pemissionr";
+// import Service from "./routes/Service";
+// import "./index.css";
+
+//import React from 'react'
+
+export default function App() {
   return (
     <div>
-      <h1 id="HeaderName"> </h1>
-      <nav id="navPage">
-      <Link to="/Homepage">Homepage </Link>|{"      "}
-        <Link to="/Employee">Employee</Link>|{"      "}
-        <Link to="/Services">services</Link> |{"      "}
-        <Link to="/Customer">Customer</Link> |{"      "}
-        <Link to="/Header">Header</Link> | {"     "}
-        <Link to="/login">login</Link> |{"    "}
-        <Link to="/payment">payment</Link>|{"    "}
-        <Link to="/AuthContext">AuthContext|</Link>{"    "}
-        <Link to="/ser">ser |</Link>{"    "}
-        <Link to="/Appointement">Appointement |</Link>{"    "}
-        {/* <Link to= "/Appointement">Appointement|</Link> {""}*/}
-      </nav>
-      <Outlet />
+      
+      <h1>3wsxdsmfnskfksf</h1>
     </div>
-  );
+  )
 }
-export default App
+
+
+
+
+
+
+
+
+
+
+
+
 
