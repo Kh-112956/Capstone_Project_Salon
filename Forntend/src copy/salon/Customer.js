@@ -10,7 +10,6 @@ export default function Customer() {
     const [Gender, setGender] = useState("")
     let [del,setdel]= useState("") 
     const [myCustemor, setMyCustemor] = useState({ id: "", lname: "",fname:"", phone: "", state: "", Gender: "", city: ""  })
-    
     function handelid(event) {
         setid((event.target.value));
     }
@@ -135,13 +134,6 @@ export default function Customer() {
             <input type="text" id="id" name="id" onChange={handleClickDel3} />
          <br />
          <input type="submit" value="Delete2" onClick={handleClickDel2}></input>
-
-
-
-
-
-
-
              {/* <h2>my details are:  {JSON.stringify(myCustemor)}</h2>
       <button onClick={handleClick}>Post</button>
       { <button onClick={handle1}>delete</button>  } */}

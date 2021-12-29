@@ -5,13 +5,13 @@ import App from './App';
 import Customer from "./salon/Customer";
 import "./index.css";
 import Homepage from "./salon/Homepage";
-import Appointment from "./salon/Appointment";
+// import Appointment from "./salon/Appointment";
 import AuthContex from "./salon/AuthContext";
 import Employee from "./salon/Employee";
 import Header from "./salon/Header";
-import login from "./salon/login";
+// import login from "./salon/login";
 import Service from './salon/Services';
-import  payment from "./salon/payment";
+// import  payment from "./salon/payment";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
@@ -19,12 +19,15 @@ ReactDOM.render(
       <Route path="Homepage" element={<Homepage />} />
         <Route path="Customer" element={<Customer/>}/> 
        <Route path="Services" element={<Service/>}/> 
-       <Route path="Appointment" element={<Service/>}/> 
+       {/* <Route path="Appointment" element={<Service/>}/>  */}
        <Route path="AuthContext" element={<AuthContex/>}/> 
        <Route path="Employee" element={<Employee/>}/> 
+       <Route path="/ser" element={<ser />}>
+          {/* <Route path=":id" element={<File />} /> */}
+          </Route>
        <Route path="Header" element={<Header/>}/> 
-       <Route path="login" element={<login/>}/> 
-       <Route path="payment" element={<payment/>}/> 
+       {/* <Route path="login" element={<login/>}/>  */}
+       {/* <Route path="payment" element={<payment/>}/>  */}
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")

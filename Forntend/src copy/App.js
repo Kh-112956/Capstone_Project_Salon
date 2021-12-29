@@ -53,6 +53,7 @@ function App() {
   //   localStorage.setItem("MyNewArray", JSON.stringify(NewArray))
   // localStorage.setItem("MyEmployee", JSON.stringify(employee))
   // console.log(JSON.parse(localStorage.getItem("Myemployee")))
+  
   return (
     <div>
       <h1 id="HeaderName"> </h1>
@@ -65,14 +66,13 @@ function App() {
         <Link to="/login">login</Link> |{"    "}
         <Link to="/payment">payment</Link>|{"    "}
         <Link to="/AuthContext">AuthContext|</Link>{"    "}
+        <Link to="/ser">ser |</Link>{"    "}
         <Link to="/Appointement">Appointement |</Link>{"    "}
+        {/* <Link to= "/Appointement">Appointement|</Link> {""}*/}
       </nav>
       <Outlet />
     </div>
   );
 }
 export default App
-
-
-
 
