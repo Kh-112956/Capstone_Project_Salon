@@ -1,4 +1,10 @@
 package com.example.Salon.Controller;
+
+//ackage com.example.Customer.Controller;
+
+
+// import com.example.customer.Model.Entities.Customer;
+//
 //import com.example.customer.Model.Service.CustomerService;
 import com.example.Salon.Model.Entities.Customers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +22,6 @@ public class CustomerController<customerService> {
     public CustomerController(com.example.Salon.Model.Service.CustomerService customerService) {
         this.customerService = customerService;
     }
-
     @GetMapping
     public List<Customers> getCustomer() {
         return customerService.getCustomer();

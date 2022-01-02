@@ -21,7 +21,8 @@ public class CustomerConfig {
                     04444444,
                     "buzy",
                     "femel",
-                    "arar"
+                    "arar",
+                    5
             );
 
 
