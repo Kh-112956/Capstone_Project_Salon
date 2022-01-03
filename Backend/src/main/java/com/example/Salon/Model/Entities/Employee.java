@@ -14,10 +14,11 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
 
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
-   // private List<Appointment> items = new ArrayList<>();
+    private List<Appointment> items = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -29,12 +30,38 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String firstName, String lastName, String email) {
+    public List<Appointment> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Appointment> items) {
+        this.items = items;
+    }
+
+    public Set<Services> getEmpolyeeServices() {
+        return empolyeeServices;
+    }
+
+    public void setEmpolyeeServices(Set<Services> empolyeeServices) {
+        this.empolyeeServices = empolyeeServices;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Employee(int id, String firstName, String lastName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password ;
     }
+
     public int getId() {
         return id;
     }

@@ -22,6 +22,7 @@ public class CustomerController<customerService> {
     public CustomerController(com.example.Salon.Model.Service.CustomerService customerService) {
         this.customerService = customerService;
     }
+
     @GetMapping
     public List<Customers> getCustomer() {
         return customerService.getCustomer();

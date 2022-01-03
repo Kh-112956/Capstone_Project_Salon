@@ -26,11 +26,27 @@ public class Customers {
             inverseJoinColumns = @JoinColumn(name = "services_id"))
     Set<Services> customerServices;
 
-    //@OneToMany(mappedBy = "customers")
+    @OneToMany(mappedBy = "customers")
     @JsonIgnore
-   // private List<Appointment> items = new ArrayList<>();
+    private List<Appointment> items = new ArrayList<>();
 
-    public Customers(int id, String fname, String lname, int phone, String state, String gender, String city,int amp_id) {
+    public Set<Services> getCustomerServices() {
+        return customerServices;
+    }
+
+    public void setCustomerServices(Set<Services> customerServices) {
+        this.customerServices = customerServices;
+    }
+
+    public List<Appointment> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Appointment> items) {
+        this.items = items;
+    }
+
+    public Customers(int id, String fname, String lname, int phone, String state, String gender, String city, int amp_id) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;

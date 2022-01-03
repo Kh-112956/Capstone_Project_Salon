@@ -1,4 +1,6 @@
 package com.example.Salon.Model.Entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -13,12 +15,28 @@ public class Services {
     private String sname;
     private double price ;
     private String materials;
-
+    @JsonIgnore
     @ManyToMany(mappedBy = "customerServices")
     Set<Customers> servicescustomer;
-
+    @JsonIgnore
     @ManyToMany(mappedBy = "empolyeeServices")
     Set<Employee> servicesemployee;
+
+    public Set<Customers> getServicescustomer() {
+        return servicescustomer;
+    }
+
+    public void setServicescustomer(Set<Customers> servicescustomer) {
+        this.servicescustomer = servicescustomer;
+    }
+
+    public Set<Employee> getServicesemployee() {
+        return servicesemployee;
+    }
+
+    public void setServicesemployee(Set<Employee> servicesemployee) {
+        this.servicesemployee = servicesemployee;
+    }
 
     public Services(int id, String sname, double price, String materials){
 
