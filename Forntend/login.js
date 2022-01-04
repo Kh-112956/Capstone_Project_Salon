@@ -1,10 +1,14 @@
 import React,{useState,useContext} from 'react'
+import { useHistory } from 'react-router-dom';
 import { Route, Redirect } from 'react-router'
+import { useNavigate } from 'react-router-dom';
+
 // import { Form, Button } from 'react-bootstrap'
 import { AuthContext } from './AuthContext';
 import axios from "axios"
 // import './styleForm.css'
 export default function Login() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
    /*  const authContext = useContext(AuthContext) */
@@ -22,7 +26,11 @@ export default function Login() {
             method: 'post',
             url: 'api/security/login',
             data: employee
-        }).then((response)=> alert(response.data));
+        }).then((response)=> {alert(response.data)
+            if(response.data!="invalid credentials"){
+                navigate("/home");
+            }
+        });
         
     }
     return (

@@ -66,6 +66,12 @@ export default function Employee() {
             idEmployee : sel1 , 
             idService: sel2
         }
+        axios({
+            method: 'post',
+            url: `api/employee/service/${sel1}/${sel2}`,
+            data: ""
+        });
+    
         console.log(a)
      }
      useEffect(() => {

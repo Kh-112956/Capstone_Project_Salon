@@ -36,5 +36,4 @@ public class ServiceController {
         servicesService.deleteService(serviceId);
     }
 
-
 }
