@@ -16,15 +16,15 @@ export default function Login() {
         let employee = {
             email: email,
             password: password,
-            
-          
+    
+     
         }
         e.preventDefault();
         console.log({ email, password });
         //Send Api request to validate data and get token
         axios({
             method: 'post',
-            url: 'api/security/login',
+     url: 'api/security/login',
             data: employee
         }).then((response)=> {alert(response.data)
             if(response.data!="invalid credentials"){

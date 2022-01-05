@@ -1,26 +1,32 @@
+// import React,{useEffect,useState} from "react"
 import React,{useEffect,useState} from "react"
-import axios from "axios"
-import { useNavigate } from 'react-router-dom';
+ import axios from "axios"
+ import { useNavigate } from "react-router-dom";
+
+
+// export default function Appointments() {
+
+//     const [allAppointments, setallAppointments] = useState("") 
+//     useEffect(() => {
+//         axios.get("api/appointment")
+
 export default function Appointments() {
+const [allAppointments,setallAppointments] = useState("")
+useEffect(() => {
+  axios.get("api/appointment")
+  .then(response => {
+setallAppointments(response.data)
+  })
+},[])
+}
+function deleteappointment(event,id){
+console.log("data:",id)
+axios({
+method: 'delete',
+url:`api/appointment/delete/${id}`,
+})
+}
 
-    const [allAppointments, setallAppointments] = useState("") 
-    useEffect(() => {
-        axios.get("api/appointment")
-        .then(response => {
-            setallAppointments(response.data)
-           
-        }) 
-       
-    },[] )
-
-    function deleteappointment(event, id){
-        console.log("data:" , id)
-        axios({
-            method:'delete',
-            url:`api/appointment/delete/${id}`,
-          });
-
-    }
 return (<>
 <div>
 <table style={{border:"1px  solid black"}}>
@@ -37,7 +43,7 @@ return (<>
                           
                           // Return the element. Also pass key     
                           return ( 
-                          
+
                             <tr>
                             <td  style={{border:"1px  solid black"}} >{appointment.customers.fname} {appointment.customers.lname } </td>
                             <td  style={{border:"1px  solid black"}} >{appointment.employee.firstName} {appointment.employee.lastName}</td>
@@ -56,7 +62,7 @@ return (<>
 </>
 
     )
-}
+
 
 
 
