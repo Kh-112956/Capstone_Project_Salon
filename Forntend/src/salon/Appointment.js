@@ -1,32 +1,26 @@
-// import React,{useEffect,useState} from "react"
 import React,{useEffect,useState} from "react"
- import axios from "axios"
- import { useNavigate } from "react-router-dom";
-
-
-// export default function Appointments() {
-
-//     const [allAppointments, setallAppointments] = useState("") 
-//     useEffect(() => {
-//         axios.get("api/appointment")
-
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 export default function Appointments() {
-const [allAppointments,setallAppointments] = useState("")
-useEffect(() => {
-  axios.get("api/appointment")
-  .then(response => {
-setallAppointments(response.data)
-  })
-},[])
-}
-function deleteappointment(event,id){
-console.log("data:",id)
-axios({
-method: 'delete',
-url:`api/appointment/delete/${id}`,
-})
-}
 
+    const [allAppointments, setallAppointments] = useState("") 
+    useEffect(() => {
+        axios.get("api/appointment")
+        .then(response => {
+            setallAppointments(response.data)
+           
+        }) 
+       
+    },[] )
+
+    function deleteappointment(event, id){
+        console.log("data:" , id)
+        axios({
+            method:'delete',
+            url:`api/appointment/delete/${id}`,
+          });
+
+    }
 return (<>
 <div>
 <table style={{border:"1px  solid black"}}>
@@ -43,26 +37,23 @@ return (<>
                           
                           // Return the element. Also pass key     
                           return ( 
-
                             <tr>
                             <td  style={{border:"1px  solid black"}} >{appointment.customers.fname} {appointment.customers.lname } </td>
                             <td  style={{border:"1px  solid black"}} >{appointment.employee.firstName} {appointment.employee.lastName}</td>
                             <td  style={{border:"1px  solid black"}} >{appointment.services.sname}</td>
                             <td  style={{border:"1px  solid black"}} >{appointment.services.price}</td>
                             <td  style={{border:"1px  solid black"}} >{appointment.time}</td>
-                     
                             <td  style={{border:"1px  solid black"}} >   <button onClick={(event) => deleteappointment(event,appointment.id)}>Delete</button></td>
                           </tr>
                           
                           ) 
                        }): <h4>null</h4>}
-
 </table>
 </div>
 </>
 
     )
-
+}
 
 
 

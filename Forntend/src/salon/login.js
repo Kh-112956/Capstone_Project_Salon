@@ -12,20 +12,20 @@ export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
    /*  const authContext = useContext(AuthContext) */
-    function login(e) {
-        let employee = {
-            email: email,
-            password: password,
+   function login(e) {
+    let employee = {
+        email: email,
+        password: password,
+        
     
-     
-        }
-        e.preventDefault();
-        console.log({ email, password });
+    }
+    e.preventDefault();
+    console.log({ email, password });
         //Send Api request to validate data and get token
         axios({
-            method: 'post',
-     url: 'api/security/login',
-            data: employee
+            method: "get",
+            url: 'api/employee/login',
+            params: { email: email , password: password}
         }).then((response)=> {alert(response.data)
             if(response.data!="invalid credentials"){
                 navigate("/home");
@@ -52,11 +52,11 @@ export default function Login() {
                         <div class="input-container">
                             <label for="#{label}">Password:</label>
                             <input type="password" id="#{label}" required="required" onChange={e => setPassword(e.target.value)}/>
-                            
+
                             <div class="bar"></div>
                         </div>
                         <div class="button-container">
-                            <button onClick={login}><span>Go</span></button>
+                            <button class="A1" onClick={login}><span>Go</span></button>
                         </div>
                         <div class="footer"><a href="#">Forgot your password?</a></div>
                     </form>

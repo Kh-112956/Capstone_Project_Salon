@@ -62,7 +62,6 @@ export default function Oneservice() {
         axios.get(`../api/service/${params.id}`)
         .then(response => {
             setService(response.data)
-           
         }) 
        
     },[] )

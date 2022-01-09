@@ -8,26 +8,27 @@ import Homepage from "./salon/Homepage";
 import Appointments from "./salon/Appointment";
 import AuthContex from "./salon/AuthContext";
 import Employee from "./salon/Employee";
-import Header from "./salon/Header";
+// import Header from "./salon/Header";
 import Login from "./salon/login";
 import Service from './salon/Services';
-import  payment from "./salon/payment";
+// import  payment from "./salon/payment";
 import Oneservice from "./salon/OneService" ;
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-    <Route path="/" element={<Homepage />}/>
+    <Route path="/" element={<App />}>
       <Route path="Homepage" element={<Homepage />} />
-      <Route path="home" element={<App />} />
+      <Route path="home" element={<Customer />} />
         <Route path="Customer" element={<Customer/>}/> 
        <Route path="oneservice/:id" element={<Oneservice/>}/> 
        <Route path="Services" element={<Service/>}/> 
        <Route path="Appointment" element={<Appointments/>}/> 
-       <Route path="AuthContext" element={<AuthContex/>}/> 
+       
        <Route path="Employee" element={<Employee/>}/> 
-       <Route path="Header" element={<Header/>}/> 
-       <Route path="Login" element={<Login/>}/> 
-       <Route path="payment" element={<payment/>}/> 
+       
+       <Route path="/" element={<Login/>}/> 
+       
+     </Route>  
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")

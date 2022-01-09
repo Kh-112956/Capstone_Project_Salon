@@ -7,6 +7,7 @@ export default function Service() {
     const [price, setprice] = useState("")
     const [materials, setmaterials] = useState("")
     const [myService, setMyServiice] = useState({ id: "", sname: "",price:"" })
+    // const [selectedFile, setSelectedFile] = useState("")
     const[del,setdel]= useState("") 
     function handelservicesId(event) {
         setservicesId((event.target.value));
@@ -24,6 +25,11 @@ export default function Service() {
          setdel(event.target.value)
          console.log("del in handleclick "+del) 
         }
+
+        // function onFileChange(event) {
+        //     setSelectedFile(event.target.files[0]); 
+        //   }
+
     let nuwService = {
         id: servicesId,
         sname: sname,
@@ -38,13 +44,33 @@ export default function Service() {
         }) 
         return () => {}
     }, )
-    function handleClick() {
-        console.log(nuwService)
+    function handleClick(event) {
+       /*  console.log(nuwService)
         axios({
             method: 'post',
             url: 'api/service/add',
             data: nuwService
-        });
+        }); */
+
+        // const formData = new FormData();
+        //   formData.append(
+        //     "file",
+        //     selectedFile
+            
+        //   );
+    
+        //   formData.append(
+        //       "serviceStr",  JSON.stringify(nuwService) 
+        //   )
+      event.preventDefault();
+      console.log("add func")
+     axios({
+       method:'post',
+       url:'api/service/New',
+       data:formData
+     });
+        
+
     }
      function handleClickDel2(){
         console.log("del",del)
@@ -55,6 +81,7 @@ export default function Service() {
 
     return (
         <div>
+            <main style={{ padding: "1rem 0" }}>
         <button onClick={handleClick} >Service </button>
         <form className='Patient' >
             <div class="log">
@@ -93,6 +120,9 @@ export default function Service() {
                     name="price"
                     onChange={handleMaterials} />
                     <br></br>
+                    <br></br>
+
+          <br></br>
             </div>
         </form>
 
@@ -100,7 +130,7 @@ export default function Service() {
          <br />
          <input type="submit" value="Delete2" onClick={handleClickDel2}></input>
 
-    
+         </main>
     </div>
 )
 }

@@ -1,26 +1,3 @@
-
-<!-- HTML !-->
-<button class="button-25" role="button">Button 25</button>
-
-/* CSS */
-/* .button-25 {
-  background-color: #36A9AE;
-  background-image: linear-gradient(#37ADB2, #329CA0);
-  border: 1px solid #2A8387;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: block;
- 
-} */
-/* .button-25:disabled:active {
-  pointer-events: none;
-} */
-
-.button-25:disabled:hover {
-  box-shadow: none;
-}
 .App {
   text-align: center;
 }
@@ -46,7 +23,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }

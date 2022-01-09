@@ -18,8 +18,7 @@ export default function Employee() {
     }
     function handleIDel(event) {
         setdelid((event.target.value));
-        
-        
+         
     }
     function handleLname(event) {
         setLname((event.target.value));
@@ -44,7 +43,6 @@ export default function Employee() {
     });
 
     }
-
     function handleSelect1(event){
         setSel1(event.target.value) 
     }
@@ -59,7 +57,6 @@ export default function Employee() {
             method:'delete',
             url:`api/employee/delete/${delid}`,
           });
- 
      }
      function handleAddServiceToEmployee(){
         let a = {

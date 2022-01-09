@@ -25,7 +25,7 @@ export default function Homepage() {
     
         function gotoservice (event,id){
             event.preventDefault();
-            navigate(`oneservice/${id}`);
+            navigate(`../oneservice/${id}`);
             console.log(id)
         }
     
@@ -38,9 +38,10 @@ export default function Homepage() {
            
 <table >
 <tr>
-  <td  style={{border:"1px  solid black"}} >Service name </td>
+  <td style={{border:"1px  solid black"}} >Service name </td>
   <td  style={{border:"1px  solid black"}} > Price </td>
   <td  style={{border:"1px  solid black"}} > Material </td>
+  {/* <td  style={{border:"1px  solid black"}} > Photo </td> */}
   <td  style={{border:"1px  solid black"}} >  Make an appointment</td>
 
 </tr>
@@ -53,10 +54,9 @@ export default function Homepage() {
                             <td  style={{border:"1px  solid black"}} >{service.sname} </td>
                             <td  style={{border:"1px  solid black"}} >{service.price}</td>
                             <td  style={{border:"1px  solid black"}} >{service.materials}</td>
-                     
+                            <td  style={{border:"1px  solid black"}} >  <img src={service.photo} width="150" height="200"/> </td>
                             <td  style={{border:"1px  solid black"}} >   <button onClick={(event) => gotoservice(event,service.id)}>Show</button></td>
                           </tr>
-                          
                           ) 
                        }): <h4>null</h4>}
 

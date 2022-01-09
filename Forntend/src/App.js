@@ -45,8 +45,9 @@ export default function App() {
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./index.css"
+import Logo from "./salon/img/Logo.png";
 //import { getPatients } from "./data";
-function App() {
+export default function App() {
   // let [User, setUser] = useState(false);
   // let employee = getEmployees();
   // let NewArray = [];
@@ -55,23 +56,29 @@ function App() {
   // console.log(JSON.parse(localStorage.getItem("Myemployee")))
   return (
     <div>
-      <h1 id="HeaderName"> </h1>
-      <nav id="navPage">
-      <Link to="/Homepage">Homepage </Link>|{"      "}
-        <Link to="/Employee">Employee</Link>|{"      "}
-        <Link to="/Services">services</Link> |{"      "}
-        <Link to="/Customer">Customer</Link> |{"      "}
-        <Link to="/Header">Header</Link> | {"     "}
-        <Link to="/Login">login</Link> |{"    "}
-        <Link to="/payment">payment</Link>|{"    "}
-        <Link to="/AuthContext">AuthContext|</Link>{"    "}
-        <Link to="/Appointment">Appointement |</Link>{"    "}
+      <h1 > </h1>
+      <img src={Logo} alt="logo" className="logo" />
+      <nav style={{
+          // borderBottom: "solid 1px",
+          // paddingBottom: "1rem"
+          
+        }}>
+          {/* <img src={Logo} alt="logo" className="logo" /> */}
+     <Link to="/Homepage"> <button className="A1">Homepage</button></Link> |{" "}
+        <Link to="/Employee"><button  className="A6">Employee  </button></Link> |{" "}
+        <Link to="/Services"><button className="A2">Services  </button></Link> |{" "}
+        <Link to="/Customer"><button className="A3">Customer </button></Link> |{" "}
+        <Link to="/Header"><button  className="A4"> Header </button></Link> |{" "}
+        <Link to="/Login"><button className="A5">login </button></Link> |{" "}
+        <Link to="/Appointment"><button className="A7"> Appointment </button></Link> |{" "}
+        {/* <Link to="/AuthContext"><button className="A7">AuthContext </button></Link> |{" "} */}
+        {/* <Link to="/payment"><button className="A8">payment </button></Link> |{" "} */}
       </nav>
       <Outlet />
     </div>
   );
 }
-export default App
+
 
 
 
