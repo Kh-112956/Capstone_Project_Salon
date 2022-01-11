@@ -17,8 +17,7 @@ export default function Employee() {
         setId((event.target.value));   
     }
     function handleIDel(event) {
-        setdelid((event.target.value));
-        
+        setdelid((event.target.value));    
         
     }
     function handleLname(event) {
@@ -35,13 +34,13 @@ export default function Employee() {
     }
     
     function handleAddEmployee()  {
-       let a= { id: id, email: email,firstName:fname, lastName:lname, password: password}
-       console.log("data:" , a)
-       axios({
-        method: 'post',
-        url: 'api/employee/add',
-        data: a
-    });
+        let a= { id: id, email: email,firstName:fname, lastName:lname, password: password}
+        console.log("data:" , a)
+        axios({
+         method: 'post',
+         url: 'api/employee/add',
+         data: a
+     });
 
     }
 
@@ -60,41 +59,41 @@ export default function Employee() {
             url:`api/employee/delete/${delid}`,
           });
  
-     }
-     function handleAddServiceToEmployee(){
-        let a = {
-            idEmployee : sel1 , 
-            idService: sel2
         }
-        axios({
+        function handleAddServiceToEmployee(){
+           let a = {
+               idEmployee : sel1 , 
+               idService: sel2
+           }
+           axios({
             method: 'post',
             url: `api/employee/service/${sel1}/${sel2}`,
             data: ""
         });
     
         console.log(a)
-     }
-     useEffect(() => {
-        axios.get("api/employee")
-            .then(response => {
-                console.log(response.data)
-                setEmployees(Array.from(response.data))
-            })
-        return () => { }
-    }, [])
+    }
     useEffect(() => {
-        axios.get("api/service")
+       axios.get("api/employee")
+           .then(response => {
+               console.log(response.data)
+               setEmployees(Array.from(response.data))
+           })
+           return () => { }
+        }, [])
+        useEffect(() => {
+            axios.get("api/service")
             .then(response => {
                 console.log(response.data)
                 setServices(response.data)
             })
-        return () => { }
-    }, [])
-
-    return (
-        <div class="import1">
+            return () => { }
+        }, [])
+    
+        return (
+            <div class="import1">
         
-               <div class="import2"></div>
+        <div class="import2"></div>
             <form className='Patient' >
                 <div class="log">
                     <hr />
@@ -107,7 +106,7 @@ export default function Employee() {
                         name="Id"
                         onChange={handleId} />
                         <br></br>
-                    <label > lname :</label>
+                        <label > lname :</label>
                     <dr />
                     <input
                         type="text"
@@ -124,7 +123,7 @@ export default function Employee() {
                         onChange={handleFname} />
                         <br></br>
                 
-                    <label > email:</label>
+                        <label > email:</label>
                     <dr />
                     <input
                         type="text"
@@ -141,12 +140,10 @@ export default function Employee() {
                         onChange={handlePassword} />
                    <br></br>
                     
-                </div>
+                   </div>
             </form>
             <button onClick={handleAddEmployee} >Add Employee </button>
          <br />
-      
-
                      <hr />
                     <br></br>
                     <label > Id Employee:</label>
@@ -183,13 +180,13 @@ export default function Employee() {
                 
                
                 
-            </select>
+                </select>
 
-            <br></br>
-            <label > Select Service:</label>
+<br></br>
+<label > Select Service:</label>
             <br></br>
            <select onChange={handleSelect2}>
-                <option value="">--Please choose an option--</option>
+           <option value="">--Please choose an option--</option>
                 {services.length ? services.map((ser, i) => {     
                           
                           // Return the element. Also pass key     
@@ -198,7 +195,7 @@ export default function Employee() {
                 
                
                 
-            </select>
+                </select>
             <br></br>
             <button onClick={handleAddServiceToEmployee} >Add Service to Employee </button>
 

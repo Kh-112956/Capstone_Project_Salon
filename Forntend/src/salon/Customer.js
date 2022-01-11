@@ -4,6 +4,7 @@ export default function Customer() {
     const [id, setid] = useState("")
     const [lname, setlname] = useState("")
     const [fname, setfname] = useState("")
+
     const [phone, setphone] = useState("")
     const [state, setstate] = useState("")
     const [City, setCity] = useState("")
@@ -61,29 +62,29 @@ export default function Customer() {
                 console.log(response.data)
                 setMyCustemor(response.data[0])
             })
-        return () => { }
-    }, [])
-    function handleClick() {
-        console.log(nuwCustomer)
-        axios({
-            method: 'post',
-            url: 'api/customer/add',
-            data: nuwCustomer
+            return () => { }
+        }, [])
+        function handleClick() {
+            console.log(nuwCustomer)
+            axios({
+                method: 'post',
+                url: 'api/customer/add',
+                data: nuwCustomer
         });
     }
     function handleClickDel2(){
-       console.log("del "+del)
-        axios({
-          method:'delete',
-          url:`/api/customer/delete/${del}`,
-        });
-    }
+        console.log("del "+del)
+         axios({
+           method:'delete',
+           url:`/api/customer/delete/${del}`,
+         });
+     }
 
-    return (
+     return (
         <div class="import1">
        
             
-            <form className='Patient' >
+       <form className='Patient' >
                 <div class="log">
                     <hr />
                     <br></br>
