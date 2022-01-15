@@ -28,23 +28,22 @@ export default function AddServiceToEmployee() {
     function handleEmail(event) {
         setEmail((event.target.value));
     }
-    function handlePassword(event) {
-        setPassword((event.target.value));
+    function handlepassword (event ) {
+setPassword((event.target.value));
     }
-    
-    function handleAddEmployee()  {
-        let a= { id: id, email: email,firstName:fname, lastName:lname, password: password}
-        console.log("data:" , a)
-        axios({
-        method: 'post',
-        url: 'api/employee/add',
-        data: a
-    });
+    function handleAddEmployee() {
+let a={id:id,email:email,firstName:fname,lastName:lname,password:password}
+console.log("data:",a)
+axios({
+method:'post',
+url:'api/employee/add',
+data: a
 
-}
+});
 
-function handleSelect1(event){
-    setSel1(event.target.value) 
+    }
+    function handleSelect1(event){
+        setSel1(event.target.value) 
 }
 function handleSelect2(event){
     setSel2(event.target.value) 
