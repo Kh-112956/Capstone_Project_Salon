@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 // import { Form, Button } from 'react-bootstrap'
 import { AuthContext } from './AuthContext';
 import { useParams } from "react-router-dom";
-
 // import './styleForm.css'
 export default function Oneservice() {
     const [sel1, setSel1] = useState("")
@@ -29,7 +28,6 @@ export default function Oneservice() {
             services :{id:params.id} ,
             date:date,
             time:time
-            
         }
         axios({
             method: 'post',
@@ -37,6 +35,7 @@ export default function Oneservice() {
             data: appointment
         });
         console.log(appointment)
+        navigate("/Appointment");
     }
     useEffect(() => {
         axios.get(`../api/employee/service/${params.id}`)
@@ -61,7 +60,7 @@ export default function Oneservice() {
         axios.get(`../api/customer/getCustomerbyemail/${email}`)
         .then(response => {
             
-           setCustomer(response.data)
+            setCustomer(response.data)
         }) 
        
     },[] )
@@ -81,6 +80,7 @@ export default function Oneservice() {
 
         </div>
         <h1>Make appointment</h1>
+
         <br></br>
         <label>Select employee : </label>
         <select onChange={handleSelect}>
@@ -89,18 +89,19 @@ export default function Oneservice() {
                           
                           // Return the element. Also pass key     
                           return ( <option value={emp.id}>{emp.firstName}</option>) 
-                        }): <h4>null</h4>}
-                </select>
+                       }): <h4>null</h4>}
+                
+               
+                
+        </select>
         <br></br>
         <label>Appointment Date : </label>
         <input type="text"  placeholder="Date" name="Date" onChange={handleDate} />
-       <label>Appointment Time : </label>
+        <label>Appointment Time : </label>
         <input type="text"  placeholder="Time" name="Date" onChange={handleTime} />
         <br></br>
         <button onClick={handleAddAppointment} >Make Appointment </button> </>): (<h1>You need to login before</h1>) 
         }
-
-        
         </>
     )
 }

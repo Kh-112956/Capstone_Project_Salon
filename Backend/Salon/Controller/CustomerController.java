@@ -1,11 +1,4 @@
 package com.example.Salon.Controller;
-
-//ackage com.example.Customer.Controller;
-
-
-// import com.example.customer.Model.Entities.Customer;
-//
-//import com.example.customer.Model.Service.CustomerService;
 import com.example.Salon.Model.Entities.Customers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/customer")
-public class CustomerController<customerService> {
+public class CustomerController {
 
     private com.example.Salon.Model.Service.CustomerService customerService;
 
@@ -27,6 +20,7 @@ public class CustomerController<customerService> {
     public List<Customers> getCustomer() {
         return customerService.getCustomer();
     }
+
     @GetMapping(path = "{customerId}")
     public Optional<Customers> getcustomer(@PathVariable(name = "customerId") Integer customerId) {
         return customerService.getCustomer(customerId);

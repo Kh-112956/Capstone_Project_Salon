@@ -51,29 +51,6 @@ public class ServiceController {
         servicesService.deleteService(serviceId);
     }
 
-    @PostMapping(path="/New", consumes = {"multipart/form-data"})
-    public Void fileUpload(@RequestParam MultipartFile file , @RequestParam String serviceStr ) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        Services services  = mapper.readValue(serviceStr, Services.class) ;
-        try {
-            File directory = new File(uploadLocation);
-            if (!directory.exists()) {
-                directory.mkdir();
-            }
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(  uploadLocation + file.getOriginalFilename());
-            Files.write(path, bytes);
-
-
-            services.setPhoto("http://localhost:8080"+ path.toString());
-
-        }  catch (IOException e) {
-            e.printStackTrace();
-        }
-        servicesService.addNewService(services);
-
-        return null;
-    }
 
 
 }

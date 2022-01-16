@@ -1,5 +1,5 @@
 package com.example.Salon.Controller;
-import com.example.Salon.Model.Dto.AppointmentDto;
+
 import com.example.Salon.Model.Entities.Appointment;
 import com.example.Salon.Model.Entities.Employee;
 import com.example.Salon.Model.Service.EmployeeService;
@@ -35,10 +35,7 @@ public class AppointmentController {
     public void registerNewAppointment(@RequestBody Appointment appointment){
         appointmentService.addNewAppointment(appointment);
     }
-    @PostMapping(path= "addcustomer")
-    public void registerNewAppointmentCustomer(@RequestBody AppointmentDto appointmentDto){
-        appointmentService.addNewAppointmentCustomer(appointmentDto);
-    }
+
     @DeleteMapping(path = "delete/{appointmentId}")
     public void deleteAppointment(@PathVariable ("appointmentId") Integer appointmentId){
         appointmentService.deleteAppointment(appointmentId);
