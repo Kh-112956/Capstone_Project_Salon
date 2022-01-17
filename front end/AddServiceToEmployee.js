@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-export default function Employee() {
+export default function AddServiceToEmployee() {
     const [id, setId] = useState("")
     const [lname, setLname] = useState("")
     const [fname, setFname] = useState("")
@@ -58,7 +58,7 @@ export default function Employee() {
         axios({
             method:'delete',
             url:`api/employee/delete/${delid}`,
-          });
+  });
  
      }
      function handleAddServiceToEmployee(){
@@ -92,103 +92,24 @@ export default function Employee() {
     }, [])
 
     return (
-        <div class="import1">
-        
-               <div class="import2"></div>
-            <form className='Patient' >
-                <div class="log">
-                    <hr />
-                    <br></br>
-                    <label > Id Employee:</label>
-                    <dr />
-                    <input
-                        type="number"
-                        placeholder=""
-                        name="Id"
-                        onChange={handleId} />
-                        <br></br>
-                    <label > lname :</label>
-                    <dr />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="lname"
-                        onChange={handleLname} />
-                        <br></br>
-                          <label > fname :</label>
-                    <dr />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="name"
-                        onChange={handleFname} />
-                        <br></br>
-                
-                    <label > email:</label>
-                    <dr />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="state"
-                        onChange={handleEmail} />
-                    <br></br>
-                    <label > password</label>
-                    <dr />
-                    <input
-                        type="text"
-                        placeholder=""
-                        name="password"
-                        onChange={handlePassword} />
-                   <br></br>
-                    
-                </div>
-            </form>
-            <button class="buton"onClick={handleAddEmployee} >Add Employee </button>
-         <br />
-      
-
-                     <hr />
-                    <br></br>
-                    <label > Id Employee:</label>
-                    <dr />
-                    <input
-                        type="number"
-                        placeholder=""
-                        name="Id"
-                        onChange={handleIDel} />
-                        <br></br>
-                        <button class="buton"onClick={handleDeleteEmployee} >delete Employee </button>
-
-
-
-
-             {/* <h2>my details are:  {JSON.stringify(myCustemor)}</h2>
-      <button onClick={handleClick}>Post</button>
-      { <button onClick={handle1}>delete</button>  } */}
-            <br />
-
-            <hr />
-
+        <div>
             <h1>Add service to employee</h1>
             <br></br>
             <label > Select Employee:</label>
             <br></br>
-           <select class="kh"name="pets" id="pet-select" onChange={handleSelect1}>
+           <select  class="s"name="pets" id="pet-select" onChange={handleSelect1}>
                 <option value="">--Please choose an option--</option>
                 {employees.length ? employees.map((empl, i) => {     
                           
                           // Return the element. Also pass key     
                           return ( <option value={empl.id}>{empl.firstName}</option>) 
                        }): <h4>null</h4>}
-                
-               
-                
             </select>
 
             <br></br>
             <label > Select Service:</label>
             <br></br>
-           <select class="kh" onChange={handleSelect2}>
+           <select class="s" onChange={handleSelect2}>
                 <option value="">--Please choose an option--</option>
                 {services.length ? services.map((ser, i) => {     
                           
@@ -196,11 +117,9 @@ export default function Employee() {
                           return ( <option value={ser.id}>{ser.sname}</option>) 
                        }): <h4>null</h4>}
                 
-               
-                
             </select>
             <br></br>
-            <button class="buton"onClick={handleAddServiceToEmployee} >Add Service to Employee </button>
+            <button class="sr"onClick={handleAddServiceToEmployee} >Add Service to Employee </button>
 
      </div>
     )
