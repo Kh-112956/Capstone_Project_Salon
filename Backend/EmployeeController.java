@@ -11,31 +11,24 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/employee")
 public class EmployeeController {
-    private EmployeeService employeeService;
 
+    private EmployeeService employeeService;
     @Autowired
     public EmployeeController(EmployeeService employeeService ) {
         this.employeeService = employeeService;
-
     }
-
     @GetMapping
     public List<Employee> getEmployees() {
         return employeeService.getEmployees();
     }
-
-
-
     @GetMapping(path = "/service/{serviceId}")
     public List<Employee> getEmployeebyservice(@PathVariable(name = "serviceId") Integer serviceId) {
         return employeeService.getEmployeesByService(serviceId) ;
     }
-
     @GetMapping(path = "{employeeId}")
     public Optional<Employee> getEmployee(@PathVariable(name = "employeeId") Integer employeeId) {
         return employeeService.getEmployee(employeeId);
     }
-
     @PostMapping(path= "add")
     public void registerNewEmployee(@RequestBody Employee employee){
         employeeService.addNewEmployee(employee);
@@ -44,18 +37,8 @@ public class EmployeeController {
     public void deleteEmployee(@PathVariable ("employeeId") Integer employeeId){
         employeeService.deleteEmployee(employeeId);
     }
-
-    @GetMapping(path = "login")
-    public String checkLogin(@RequestParam (name = "email") String email ,
-                             @RequestParam (name = "password") String password ) {
-        return employeeService.getCheck(email,password);
-
-    }
-
     @PostMapping(path= "service/{idEmployee}/{idService}")
     public void settest(@PathVariable ("idEmployee") Integer idEmployee ,@PathVariable ("idService") Integer idService ){
-
-
         employeeService.setEmployeeService(idEmployee,idService) ;
     }
 }

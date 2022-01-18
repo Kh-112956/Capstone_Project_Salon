@@ -46,6 +46,8 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./index.css"
 import Logo from "./salon/img/Logo.png";
+import {FaTwitter , FaInstagram , FaFacebook} from 'react-icons/fa'
+
 //import { getPatients } from "./data";
 export default function App() {
   // let [User, setUser] = useState(false);
@@ -56,17 +58,26 @@ export default function App() {
   // console.log(JSON.parse(localStorage.getItem("Myemployee")))
   return (
     <div>
-      <h1 > </h1>
+      <h1> <a href="https://www.w3schools.com"><FaTwitter></FaTwitter></a>
+      
+          <FaInstagram></FaInstagram>
+          <FaFacebook></FaFacebook> </h1> 
+      
       <img src={Logo} alt="logo" className="logo" />
+    
+
+    
       <nav style={{
           borderBottom: "solid 1px",
           paddingBottom: "1rem"
         }}>
+         
       {/* <img src={Logo} alt="logo" className="logo" /> */}
       <Link to="/Homepage"> <button className="A1">Homepage</button></Link> |{" "}
         <Link to="/Employee"><button  className="A6">Employee  </button></Link> |{" "}
         <Link to="/Services"><button className="A2">Services  </button></Link> |{" "}
         <Link to="/Customer"><button className="A3">Customer </button></Link> |{" "}
+        <Link to="/AddServiceToEmployee"><button className="A3">Add Service To Employee </button></Link> |{" "}
         {/* <Link to="/Header"><button  className="A4"> Header </button></Link> |{" "} */}
         <Link to="/Login"><button className="A5">login </button></Link> |{" "}
         <Link to="/Appointment"><button className="A7"> Appointment </button></Link> |{" "}
@@ -74,7 +85,9 @@ export default function App() {
         {/* <Link to="/payment"><button className="A8">payment </button></Link> |{" "} */}
       </nav>
       <Outlet />
+
     </div>
+    
   );
 }
 

@@ -8,9 +8,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/customer")
 public class CustomerController {
-
     private com.example.Salon.Model.Service.CustomerService customerService;
-
     @Autowired
     public CustomerController(com.example.Salon.Model.Service.CustomerService customerService) {
         this.customerService = customerService;
@@ -43,9 +41,5 @@ public class CustomerController {
     public String checkLogin(@RequestParam (name = "email") String email ,
                              @RequestParam (name = "password") String password ) {
         return customerService.getCheck(email,password);
-
     }
-
-
-
 }

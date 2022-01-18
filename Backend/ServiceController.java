@@ -20,11 +20,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/service")
 public class ServiceController {
-
     @Value("${upload.path}")
     private String uploadLocation;
-
-
     private com.example.Salon.Model.Service.ServicesService servicesService;
     @Autowired
     public ServiceController(com.example.Salon.Model.Service.ServicesService servicesService) {
@@ -35,7 +32,6 @@ public class ServiceController {
     public List<Services> getService() {
         return servicesService.getService();
     }
-
 
     @GetMapping(path = "{serviceId}")
     public Optional<Services> getService(@PathVariable(name = "serviceId") Integer serviceId) {
